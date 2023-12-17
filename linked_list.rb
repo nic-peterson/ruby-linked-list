@@ -51,7 +51,7 @@ class LinkedList
   # at(index) returns the node at the given index
   def at(index)
     if (index < 0 || index > @size)
-      puts "Out of bounds!"
+      return nil
     else
       current = @head
       temp_index = 0
@@ -60,6 +60,7 @@ class LinkedList
         temp_index += 1
       end
     end
+
     current
   end
 
@@ -168,53 +169,3 @@ class LinkedList
     @size -= 1
   end
 end
-
-list = LinkedList.new
-list.append("one")
-list.append("two")
-list.append("three")
-
-p list
-
-list.prepend("spartacus")
-p list
-
-p list.size
-
-=begin
-print "#{list.head.value}\n"
-print list.at(-1)
-print list.at(10)
-print "#{list.at(0).value}\n"
-print "#{list.at(1).value}\n"
-print "#{list.at(2).value}\n"
-print "#{list.at(3).value}\n"
-=end
-
-list.pop
-p list
-
-list.append("three")
-p list
-# p list.contains?("spartacus")
-# p list.contains?("nic")
-
-p list.contains?("spartacus")
-p list.contains?("one")
-p list.contains?("two")
-p list.contains?("three")
-
-p "Find => value: spartacus index: #{list.find("spartacus")}"
-p "Find => value: one index: #{list.find("one")}"
-p "Find => value: two index: #{list.find("two")}"
-p "Find => value: three index: #{list.find("three")}"
-
-p list.to_s
-# p list.find("nic")
-=begin
-node1 = Node.new("one")
-node2 = Node.new("two", node1)
-
-puts "node1: #{node1.value}"
-puts "node2: #{node2.value}"
-=end
